@@ -273,9 +273,11 @@
             success: function (response) {
                 // Hide the delete modasl and reload the table on success
                 $('#editModal').modal('hide');
+                $('#successModal').modal('show');
+                $('#successMessage').text(response.status);
                 reloadTable();
 
-                alert('Berhasil update data : ' + name);
+                // alert('Berhasil update data : ' + name);
             }
         });
     });
@@ -300,9 +302,11 @@
             success: function (response) {
                 // Hide the delete modasl and reload the table on success
                 $('#editModal').modal('hide');
+                $('#successModal').modal('show');
+                $('#successMessage').text(response.status);
                 reloadTable();
 
-                alert('Berhasil update data : ' + name);
+                // alert('Berhasil delete data : ' + name);
             }
         });
     }
@@ -328,9 +332,11 @@
             success: function (response) {
                 // Hide the delete modasl and reload the table on success
                 $('#deleteModal').modal('hide');
+                $('#successModal').modal('show');
+                $('#successMessage').text(response.status);
                 reloadTable();
 
-                alert('Berhasil delete data : ' + name);
+                // alert('Berhasil delete data : ' + name);
             }
         });
     });

@@ -81,6 +81,7 @@ class TableController extends BaseController
                 'nama' => $this->request->getPost('nama'),
                 'email' => $this->request->getPost('email'),
                 'no_hp' => $this->request->getPost('no_hp'),
+                'status' => 'Data Successfully Updated',
             ];
             $tableModel->where('id', $id)->set($updateData)->update();
             return $this->response->setJSON($updateData);

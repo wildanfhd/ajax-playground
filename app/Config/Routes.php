@@ -29,7 +29,16 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Datatables\TableController::index');
+
+$routes->group('table', function ($routes) {
+    $routes->get('index', 'Datatables\TableController::index');
+    $routes->get('fetch/json', 'Datatables\TableController::fetchJsonData');
+    $routes->get('getdata/(:any)', 'Datatables\TableController::getData/$1');
+    $routes->post('create/post', 'Datatables\TableController::createData');
+    $routes->post('update/(:any)', 'Datatables\TableController::updateData/$1');
+    $routes->get('delete/(:any)', 'Datatables\TableController::deleteData/$1');
+});
 
 /*
  * --------------------------------------------------------------------
